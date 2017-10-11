@@ -1,8 +1,8 @@
 package com.company;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Deque;
-import java.util.List;
+//import java.util.List;
 
 public class ReversePolishCalc {
 
@@ -26,11 +26,11 @@ public class ReversePolishCalc {
                 operators.push(tokens.pop());
                 String newNum1 = stack.pop();
                 String newNum2 = stack.pop();
-                stack.push(token, newNum1, newNum2));
+                stack.push(operatorMath(token, newNum1, newNum2));
             } else {
                 stack.push(tokens.pop());
             }
-        }
+        }return Double.parseDouble(stack.pop());
     }
 
 
@@ -43,8 +43,23 @@ public class ReversePolishCalc {
             }
         }
         return false;
-        //equations
     }
+    //Put it together
+
+    public String operatorMath(String operator, String num1, String num2){
+        if(operator.equals("+")){
+            return addNum(num1,num2).toString();
+        }else if(operator.equals("-")){
+            return subNum(num1,num2).toString();
+        }else if(operator.equals("*")){
+            return multNum(num1,num2).toString();
+        } else  {
+            return divNum(num1,num2).toString();
+        }
+    }
+
+    //equations
+
 
     public Double addNum(String input1, String input2) {
         return Double.parseDouble(input1) + Double.parseDouble(input2);
@@ -54,6 +69,9 @@ public class ReversePolishCalc {
         }
     public Double multNum(String input1, String input2) {
         return Double.parseDouble(input1) * Double.parseDouble(input2);
+    }
+    public Double divNum(String input1, String input2) {
+        return Double.parseDouble(input1) / Double.parseDouble(input2);
     }
 
     }
