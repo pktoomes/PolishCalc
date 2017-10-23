@@ -21,6 +21,12 @@ public class Main {
        expectedResult = 14.0;
        actualResult = rpc.calculate(rpnExpression);
        checkResult(rpnExpression, expectedResult, actualResult);
+
+       rpnExpression ="6,1,2,+,/,7,*,2,*";
+       expectedResult = 28.0;
+       actualResult = rpc.calculate(rpnExpression);
+       checkResult(rpnExpression, expectedResult, actualResult);
+
     }
 
     private static void checkResult(String expression, double expected, double actual) {

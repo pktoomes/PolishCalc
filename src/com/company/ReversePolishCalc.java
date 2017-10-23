@@ -23,13 +23,16 @@ public class ReversePolishCalc {
         for (String token : tokens) {
             // calls to push() and pop() and do the math here
             if (isOperator(token)) {
-                System.out.println(tokens);
-                System.out.println(stack);
+                System.out.println("tokens" + tokens);
+                System.out.println("stack" + stack);
                 operators.push(tokens.pop());
                 String newNum1 = stack.pop();
                 String newNum2 = stack.pop();
+                System.out.println("num1" + newNum1);
+                System.out.println("num2" + newNum2);
                 stack.push(operatorMath(token, newNum2, newNum1));
             } else {
+                System.out.println("stack else" + stack);
                 stack.push(tokens.pop());
             }
         }return Double.parseDouble(stack.pop());
